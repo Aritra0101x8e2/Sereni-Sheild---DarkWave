@@ -1,0 +1,93 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 225 20% 13%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 25% 16%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 25% 16%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 76% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217 20% 24%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 20% 24%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 76% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 20% 24%;
+    --input: 217 20% 24%;
+    --ring: 217 76% 60%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-navy text-foreground;
+    background-image: radial-gradient(
+      circle at center,
+      #1F2639 0%,
+      #1A1F2C 40%,
+      #151A27 100%
+    );
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-navy-dark rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-light rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/50;
+  }
+}
+
+@layer components {
+  .card-glow {
+    @apply relative;
+  }
+
+  .card-glow::before {
+    content: '';
+    @apply absolute -inset-0.5 bg-gradient-to-r from-accent/30 to-primary/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-500;
+    z-index: -1;
+  }
+
+  .glassmorphism {
+    @apply bg-navy-light/40 backdrop-blur-md border border-white/10;
+  }
+
+  .grid-card {
+    @apply bg-navy-light p-5 rounded-lg shadow-lg border border-navy-light/50;
+  }
+}
